@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<div class="card text-center" style="width:900px;border-radius:30px;margin-left:150px;">
+  <div class="card-header">
+    <strong><%= @post.user.fullname %>s'Post</strong>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= image_tag @post.image.url, class:"upload" %></h5>
+    <strong>Content</strong><p class="card-text"><%= @post.content %></p>
+    <strong>User:</strong><p class="card-text"><%= @post.user.fullname %></p>
+    <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-primary" %>
+    <%= link_to 'Back', posts_path, class:"btn" %>
+  </div>
+</div><br>

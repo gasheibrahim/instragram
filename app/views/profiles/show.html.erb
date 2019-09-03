@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<div style="margin-left:250px;">
+  <%= image_tag @profile.image.url, class:"brand_logo" %>
+  <%= @profile.user.fullname %>
+<%= link_to 'Edit', edit_profile_path(@profile), class:"btn btn-primary" %>
+<%= link_to 'Back', profiles_path, class:"btn btn" %>
+</div>
+

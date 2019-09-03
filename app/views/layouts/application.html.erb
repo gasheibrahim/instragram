@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instragramclone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://icons8.com/icon/3772/compass">
+    <link rel="stylesheet" href="https://icons8.com/icon/87/heart">
+    <link rel="stylesheet" href="https://icons8.com/icon/82751/user">
+    <link rel="stylesheet" href="https://icons8.com/icon/53375/gear">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#" style="margin-left:150px;"><%= image_tag("logo.png", class:"logo") %><selif style="height:400px;">|</selif>&nbsp;<selif style="font-family:cursive;font-size:20px;"><b>Instragram</b></selif></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <input type="search" style="margin-left:150px;" placeholder="Search" class="search">
+        <ul class="navbar-nav" style="margin-left:200px;">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to "Profile", user_path(current_user.id), class:"nav-link", style:"color:black;" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", session_path(current_user.id), method: :delete, class:"nav-link", style:"color:black;" %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="https://img.icons8.com/android/24/000000/compass.png"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><img src="https://img.icons8.com/ios/50/000000/like.png" style="width:30px;height:30px;"></a>
+          </li>
+          <li class="nav-item">
+            <%= link_to profiles_path do %>
+               <%= image_tag "https://img.icons8.com/material-outlined/50/000000/user.png", style:"width:30px;height:30px;margin-top:9.5px;" %>
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
