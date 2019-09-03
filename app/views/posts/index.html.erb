@@ -11,9 +11,11 @@
     <strong>UserName</strong><p class="card-text"><%= post.user.fullname %></p>
     <% if logged_in? %>
     <% if current_user.id == post.user_id%>
+      <%= link_to 'Show', post, class:"btn btn-success" %>
+      <%= link_to 'Edit', edit_post_path(post), class:"btn btn-primary" %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+    <% else %>
     <%= link_to 'Show', post, class:"btn btn-success" %>
-    <%= link_to 'Edit', edit_post_path(post), class:"btn btn-primary" %>
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
     <% end %>
     <% end %>
   </div>

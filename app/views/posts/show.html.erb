@@ -9,5 +9,12 @@
     <strong>User:</strong><p class="card-text"><%= @post.user.fullname %></p>
     <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-primary" %>
     <%= link_to 'Back', posts_path, class:"btn" %>
+    <% unless @post.user_id == current_user.id %>
+        <% if @favorite.present? %>
+        <%= link_to 'Cancel Like', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'Like A Post', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+    <% end %>
   </div>
 </div><br>
