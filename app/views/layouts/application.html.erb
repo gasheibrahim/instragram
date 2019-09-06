@@ -36,7 +36,9 @@
             <a class="nav-link" href="#"><img src="https://img.icons8.com/android/24/000000/compass.png"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><img src="https://img.icons8.com/ios/50/000000/like.png" style="width:30px;height:30px;"></a>
+            <%= link_to favorites_path do %>
+              <%= image_tag "https://img.icons8.com/ios/50/000000/like.png", style:"width:30px;height:30px;margin-top:9px;" %>
+            <% end %>
           </li>
           <li class="nav-item">
             <%= link_to profiles_path do %>
