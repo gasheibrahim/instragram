@@ -43,10 +43,10 @@ class ProfilesController < ApplicationController
   end
 
   private
-    def set_profile
+  def set_profile
       @profile = Profile.find(params[:id])
-    end
-    def profile_params
+  end
+  def profile_params
       params.require(:profile).permit(:image, :user_id)
-    end
+  end
 end
